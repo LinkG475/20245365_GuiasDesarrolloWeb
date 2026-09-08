@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FedeAtletismo – El Salvador</title>
+    <style>
+        /* ==============================
+           Variables y Reset
+        ============================== */
+        :root {
+            --primary-color: #003893; /* Azul El Salvador */
+            --secondary-color: #002255;
+            --accent-color: #FFC107;
+            --bg-light: #F4F7F6;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==============================
+           Cabecera y Navegación
+        ============================== */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-area h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-area span {
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .social-search {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-search a:hover {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ==============================
+           Sección Hero (Bienvenida)
+        ============================== */
+        .hero {
+            background: linear-gradient(rgba(0, 56, 147, 0.8), rgba(0, 34, 85, 0.8)), url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e0a800;
+        }
+
+        /* ==============================
+           Noticias (Grid Layout)
+        ============================== */
+        .news-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 200px;
+            background-color: #ddd;
+            /* Aquí iría la etiqueta <img> de la noticia */
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .news-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* ==============================
+           Organizaciones / Enlaces
+        ============================== */
+        .partners {
+            background-color: #fff;
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .partners-logos {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* ==============================
+           Pie de página (Footer)
+        ============================== */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 0.9rem;
+        }
+
+        /* ==============================
+           Responsividad
+        ============================== */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <div class="logo-area">
+                <h1>FedeAtletismo</h1>
+                <span>El Salvador C.A.</span>
+            </div>
+            <div class="social-search">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">La Federación</a></li>
+                <li><a href="#">Área Técnica</a></li>
+                <li><a href="#">Calendario</a></li>
+                <li><a href="#">Estadísticas</a></li>
+                <li><a href="#">Transparencia</a></li>
+                <li><a href="#">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Bienvenidos a la Federación Salvadoreña de Atletismo</h2>
+        <p>Entidad rectora del atletismo en El Salvador, responsable de promover, regular y desarrollar el talento deportivo desde categorías formativas hasta el alto rendimiento.</p>
+        <a href="#" class="btn">Conoce nuestro calendario</a>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <div class="news-grid">
+            <!-- Tarjeta 1 -->
+            <article class="news-card">
+                <div class="news-image" style="background: url('https://images.unsplash.com/photo-1552674605-17147cea8732?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+                <div class="news-content">
+                    <span class="news-date">14 Marzo, 2026</span>
+                    <h3>Bienvenido a nuestro portal en línea</h3>
+                    <p>En este espacio encontrará información detallada acerca de nuestras actividades y competiciones.</p>
+                    <a href="#" class="read-more">Leer Más &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="news-card">
+                <div class="news-image" style="background: url('https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+                <div class="news-content">
+                    <span class="news-date">10 Marzo, 2026</span>
+                    <h3>Resultados del Campeonato Nacional</h3>
+                    <p>Consulta las marcas y récords establecidos durante la jornada de este fin de semana.</p>
+                    <a href="#" class="read-more">Leer Más &rarr;</a>
+                </div>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article class="news-card">
+                <div class="news-image" style="background: url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80') center/cover;"></div>
+                <div class="news-content">
+                    <span class="news-date">5 Marzo, 2026</span>
+                    <h3>Convocatoria Selección Nacional</h3>
+                    <p>Listado oficial de atletas convocados para representar al país en el próximo evento regional.</p>
+                    <a href="#" class="read-more">Leer Más &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="partners">
+        <h3>Organizaciones Afiliadas</h3>
+        <div class="partners-logos">
+            <span>WORLD ATHLETICS</span>
+            <span>NACAC</span>
+            <span>APA</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Federación Salvadoreña de Atletismo. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
