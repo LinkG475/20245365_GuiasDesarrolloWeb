@@ -1,0 +1,83 @@
+body {
+    background-color: #1a3020; 
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+#contenedor-principal {
+    background-color: #ffffff; 
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto; 
+    padding: 30px;
+    border: 2px solid #ccc;
+}
+
+#titulo-principal {
+    color: #1a4222; 
+    text-align: center;
+    border-bottom: 2px solid #1a4222;
+    padding-bottom: 10px;
+}
+
+.texto-informativo {
+    color: #333333; 
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.subtitulo {
+    color: #272727;
+    margin-top: 30px;
+}
+
+.seccion-imagenes {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.foto-personaje {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    border: 4px solid #1a4222;
+    margin: 10px;
+}
+
+.lista-personajes {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f2f5f3; 
+    padding: 20px 20px 20px 40px; 
+    border-left: 5px solid #1a4222; 
+    margin-bottom: 30px;
+}
+
+.lista-personajes li {
+    margin-bottom: 8px; 
+}
+
+#caja-frase {
+    background-color: #1a4222;
+    color: #ffffff; 
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.texto-frase {
+    font-size: 18px;
+    font-style: italic; 
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.autor-frase {
+    color: #a8c9b0; 
+    font-size: 14px;
+    margin: 0;
+}
