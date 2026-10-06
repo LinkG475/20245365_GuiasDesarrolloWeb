@@ -18,16 +18,44 @@
 
     <h2>Ejercicio complementario</h2>
     <ul>
-        <li><a href="ejercicio/ejercicio.html">Cartas</a> <span class="nota">- Página web del ejercicio complementario.</span></li>
+        <li><a href="ejercicio/ejercicio.html">Usando posicionamiento y z-index</a> <span class="nota">- Página web del ejercicio complementario.</span></li>
     </ul>
 
     <h2>Reto IA</h2>
     <ul>
         <li><a href="paginaelaborada.html">Página Elaborada</a> <span class="nota">- Página de inicio de FedeAtletismo.</span></li>
-        <li><a href="mision-vision-valores.html">Misión, Visión y Valores</a> <span class="nota">- Página de misión, visión y valores de FedeAtletismo.</span></li>
-        <li><a href="contacto.html">Contacto</a> <span class="nota">- Página de contacto de FedeAtletismo.</span></li>
+        <li><a href="paginaelaborada_copy.html">Página Elaborada con correcciones</a> <span class="nota">- Página de inicio de FedeAtletismo con correcciones.</span></li>
+        <dl class="prompt-documentation">
+            <dt>Prompt enviado a la herramienta:</dt>
+            <dd>Necesito que crees una nueva versión de la página de inicio del sitio de FedeAtletismo (https://fedeatletismo.org/).
+                Por favor, asegúrate de cumplir rigurosamente con las siguientes directrices:
+                a) Temática y finalidad del sitio: El sitio debe reflejar claramente su identidad como la entidad rectora del atletismo en El Salvador. Su finalidad es promover, regular y desarrollar este deporte desde las categorías formativas hasta el alto rendimiento, consolidando al atletismo como un pilar del deporte nacional. La página de inicio debe actuar como un portal informativo y de bienvenida que destaque el compromiso con el desarrollo del talento deportivo y la representación del país.
+                b) Contenido que debe conservarse: Debes mantener intacto el contenido esencial y estructural de la versión anterior. Esto incluye:
+
+                El mensaje principal de bienvenida y la descripción de la misión de la Federación.
+                El botón o llamado a la acción (CTA) para consultar el "Calendario de Eventos".
+                La sección de "Últimas Noticias"/"Noticias destacadas" con al menos tres tarjetas informativas recientes.
+                El pie de página (footer) con los derechos de autor (Copyright © 2026 Federación Salvadoreña de Atletismo).
+                La estructura de navegación principal (Inicio, Calendario, Misión y visión, Contacto).
+                c) Identidad visual y estructura:
+
+                Se debe conservar estrictamente la paleta de colores previamente establecida: Azul marino (
+                #0067b8) como color principal, blanco (
+                #FFFFFF) para contrastes y fondos limpios, además de otros tonos que consideres que brinden una mejora visual y estética al sitio.
+                La distribución principal de la página debe utilizar CSS Grid. No será suficiente emplearlo únicamente en una galería, un conjunto de tarjetas u otro componente aislado; el layout estructural de la página (header, hero, secciones de contenido, footer) debe regirse por un sistema de cuadrícula.
+                Se permite utilizar Flexbox, pero únicamente dentro de componentes específicos (por ejemplo, para alinear los elementos dentro del menú de navegación o para centrar el texto dentro de los botones).
+                Finalmente, debes generar un archivo exclusivo para el código HTML y otro archivo separado exclusivamente para el CSS. Te adjunto la versión previa que yo tenía de la página de inicio como referencia base.</dd>
+            <dt>Cambios efectuados sobre el resultado original:</dt>
+            <dd>
+                <ul>
+                    <li class="nota">Se eliminó una fila vacía sobrante en la tarjeta de noticias destacada agregando <code>grid-template-rows: 1fr;</code> en el media query de escritorio.</li>
+                    <li class="nota">Se añadió una declaración de columnas de respaldo (fallback) en el CSS antes de la propiedad <code>subgrid</code> para garantizar la compatibilidad estructural con navegadores más antiguos.</li>
+                    <li class="nota">Se corrigió la ruta del archivo de hoja de estilos en la etiqueta <code>&lt;link&gt;</code> del HTML para que apuntara a la versión final de CSS con los ajustes de Grid.</li>
+                </ul>
+            </dd>
+        </dl>
     </ul>
     <h2>Video explicativo del reto IA</h2>
-        <iframe src="https://www.youtube.com/embed/g9hQy9IGQoM?si=DRmRVSYKWEqK06v8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
 </body>
 </html>

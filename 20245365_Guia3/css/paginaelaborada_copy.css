@@ -1,0 +1,246 @@
+/* ==========================================================
+   FedeAtletismo · Página de inicio
+   Layout estructural: CSS Grid (página, header, hero, secciones, footer).
+   Flexbox: solo dentro de componentes (menú, botones, logo).
+   ========================================================== */
+
+:root {
+    --blue: #0067b8;          /* color principal */
+    --blue-dark: #00457a;
+    --navy: #0a2a47;
+    --white: #ffffff;
+    --sky: #eaf3fb;
+    --line: #cfe0ef;
+    --track: #f26b21;         /* naranja tartán de pista */
+    --text: #17283a;
+    --muted: #4c6176;
+    --font-display: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+    --gutter: clamp(1rem, 4vw, 3rem);
+    --max: 72rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+
+.page {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--white);
+    min-height: 100vh;
+    /* Cuadrícula estructural: márgenes laterales + columna central */
+    display: grid;
+    grid-template-columns: minmax(var(--gutter), 1fr) minmax(0, var(--max)) minmax(var(--gutter), 1fr);
+    grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; margin: 0 0 .6rem; color: var(--navy); }
+p { margin: 0 0 1rem; }
+a { color: var(--blue); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--track); outline-offset: 3px; }
+
+.skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 20;
+    background: var(--navy); color: var(--white); padding: .6rem 1rem;
+}
+.skip-link:focus { top: 1rem; }
+
+.kicker { font-weight: 600; color: var(--blue); margin: 0 0 .5rem; }
+
+/* ---------- Header (Grid) ---------- */
+.site-header {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: center;
+    background: var(--white);
+    border-bottom: 4px solid var(--blue);
+    position: sticky; top: 0; z-index: 10;
+}
+.site-header > * { grid-column: 2; }
+.site-header { grid-template-rows: auto auto; row-gap: 0; }
+@media (min-width: 52rem) {
+    .site-header { grid-template-rows: auto; }
+    .site-header > .logo { grid-column: 2; grid-row: 1; justify-self: start; }
+    .site-header > .main-nav { grid-column: 2; grid-row: 1; justify-self: end; }
+}
+
+/* Logo (Flexbox en componente) */
+.logo {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .9rem 0; text-decoration: none; color: var(--navy);
+}
+.logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; letter-spacing: .02em; }
+.logo-mark { display: grid; grid-template-columns: repeat(4, .35rem); gap: 3px; height: 1.7rem; align-items: end; }
+.logo-mark span { background: var(--blue); display: block; }
+.logo-mark span:nth-child(1) { height: 40%; }
+.logo-mark span:nth-child(2) { height: 60%; }
+.logo-mark span:nth-child(3) { height: 80%; }
+.logo-mark span:nth-child(4) { height: 100%; background: var(--track); }
+
+/* Navegación (Flexbox en componente) */
+.main-nav ul { display: flex; flex-wrap: wrap; gap: .25rem; list-style: none; margin: 0; padding: 0 0 .6rem; }
+.main-nav a {
+    display: flex; align-items: center; min-height: 2.75rem; padding: 0 1rem;
+    color: var(--navy); font-weight: 600; text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+.main-nav a:hover { color: var(--blue); border-bottom-color: var(--line); }
+.main-nav a[aria-current="page"] { color: var(--blue); border-bottom-color: var(--track); }
+@media (min-width: 52rem) { .main-nav ul { padding: 0; } }
+
+/* ---------- Main (Grid) ---------- */
+.site-main {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    row-gap: clamp(3rem, 7vw, 5.5rem);
+    padding-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+.site-main > * { grid-column: 2; }
+.site-main > .highlight-band { grid-column: 1 / -1; }
+
+/* ---------- Hero (Grid con líneas de carril de pista) ---------- */
+.hero {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    padding-block: clamp(2.5rem, 7vw, 5rem);
+    background:
+        repeating-linear-gradient(
+            180deg,
+            transparent 0, transparent 3.2rem,
+            rgba(0, 103, 184, .12) 3.2rem, rgba(0, 103, 184, .12) 3.3rem
+        ),
+        linear-gradient(120deg, var(--sky) 0%, var(--white) 70%);
+    border-bottom: 1px solid var(--line);
+}
+.hero > * { grid-column: 2; }
+@media (min-width: 52rem) {
+    .hero { grid-template-columns: minmax(var(--gutter), 1fr) repeat(12, minmax(0, calc(var(--max) / 12))) minmax(var(--gutter), 1fr); column-gap: 0; }
+    .hero-content { grid-column: 2 / 9; padding-right: 2rem; }
+    .hero-panel { grid-column: 9 / 14; align-self: end; }
+}
+.hero h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 800; max-width: 14ch; }
+.hero-lead { max-width: 38rem; font-size: 1.15rem; color: var(--muted); }
+.hero-actions { display: grid; grid-template-columns: auto; justify-items: start; gap: 1rem; margin-top: 1.5rem; }
+@media (min-width: 34rem) { .hero-actions { grid-template-columns: auto auto; align-items: center; justify-content: start; column-gap: 1.75rem; } }
+
+.hero-panel {
+    margin-top: 2rem;
+    background: var(--navy); color: var(--white);
+    padding: 1.75rem; border-top: 6px solid var(--track);
+}
+@media (min-width: 52rem) { .hero-panel { margin-top: 0; } }
+.hero-panel h2 { color: var(--white); font-size: 1.7rem; }
+.hero-panel p { color: #d3e3f2; }
+.lane-list { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0; }
+.lane-list li { padding: .6rem 0; border-top: 1px solid rgba(255, 255, 255, .25); font-weight: 600; }
+
+/* ---------- Botones y enlaces (Flexbox en componente) ---------- */
+.primary-button {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 3rem; padding: 0 1.75rem;
+    background: var(--blue); color: var(--white);
+    font-weight: 600; text-decoration: none;
+    border-bottom: 4px solid var(--blue-dark);
+    transition: background .2s;
+}
+.primary-button:hover { background: var(--blue-dark); }
+.text-link { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--track); padding-bottom: 1px; }
+.text-link:hover { color: var(--blue-dark); }
+
+/* ---------- Noticias (Grid) ---------- */
+.news-section { display: grid; row-gap: 2rem; }
+.section-heading { display: grid; max-width: 40rem; }
+.section-heading h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+.section-heading p:last-child { color: var(--muted); margin: 0; }
+
+.news-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+@media (min-width: 42rem) {
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-card:first-child { grid-column: 1 / -1; grid-template-columns: 1.1fr 1fr; }
+    .news-card:first-child .news-image { min-height: 100%; }
+}
+@media (min-width: 64rem) {
+    .news-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+    .news-card:first-child { grid-column: auto; grid-template-columns: 1fr; }
+    .news-card:first-child .news-image { min-height: 12rem; }
+}
+.news-card {
+    display: grid; grid-template-columns: 1fr; grid-template-rows: auto 1fr;
+    background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--blue);
+}
+.news-image { min-height: 12rem; background-size: cover; background-position: center; }
+.img-1 { background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%); }
+.img-2 {
+    background:
+        repeating-linear-gradient(180deg, transparent 0 1.4rem, rgba(255,255,255,.5) 1.4rem 1.5rem),
+        linear-gradient(135deg, var(--track) 0%, #c24a0e 100%);
+}
+.img-3 { background: linear-gradient(135deg, #3d93d6 0%, var(--blue-dark) 100%); }
+.news-content { padding: 1.4rem; display: grid; align-content: start; }
+.news-meta { font-size: .9rem; color: var(--muted); margin-bottom: .5rem; }
+.news-content h3 { font-size: 1.7rem; }
+.news-content .text-link { justify-self: start; margin-top: auto; }
+
+/* ---------- Banda destacada (Grid) ---------- */
+.highlight-band {
+    display: grid; grid-template-columns: subgrid;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+    background: var(--navy); color: var(--white);
+}
+.highlight-band > * { grid-column: 2; }
+@media (min-width: 52rem) {
+    .highlight-band { grid-template-columns: minmax(var(--gutter), 1fr) repeat(2, minmax(0, calc(var(--max) / 2))) minmax(var(--gutter), 1fr); column-gap: 0; }
+    .highlight-copy { grid-column: 2; padding-right: 2.5rem; }
+    .stats { grid-column: 3; }
+}
+.highlight-copy { display: grid; justify-items: start; align-content: center; }
+.highlight-copy h2 { color: var(--white); font-size: clamp(2.2rem, 5vw, 3.2rem); }
+.highlight-copy .kicker { color: #8cc4f0; }
+.highlight-copy p { color: #d3e3f2; }
+.highlight-copy .primary-button { background: var(--track); border-bottom-color: #b9470c; margin-top: .5rem; }
+.highlight-copy .primary-button:hover { background: #d95a14; }
+
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,.2); margin-top: 2rem; }
+@media (min-width: 52rem) { .stats { margin-top: 0; } }
+.stat-card { background: var(--navy); padding: 1.25rem; display: grid; align-content: start; gap: .35rem; }
+.stat-card strong { font-family: var(--font-display); font-size: 2.4rem; line-height: 1; color: var(--white); }
+.stat-card span { font-size: .95rem; color: #bcd3e8; }
+
+/* ---------- Footer (Grid) ---------- */
+.site-footer {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: subgrid;
+    background: var(--blue); color: var(--white);
+    padding-block: 2.5rem 1.5rem;
+}
+.site-footer > * { grid-column: 2; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+@media (min-width: 46rem) { .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; gap: 2.5rem; } }
+.footer-block h2 { color: var(--white); font-size: 1.5rem; }
+.footer-block p { margin: 0; }
+.site-footer a { color: var(--white); }
+.site-footer a:hover { text-decoration: none; }
+.footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.footer-bottom { margin: 2rem 0 0; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.35); font-size: .95rem; }
+
+/* ---------- Volver arriba ---------- */
+.back-top {
+    position: fixed; right: 1rem; bottom: 1rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 2.75rem; padding: 0 1rem;
+    background: var(--navy); color: var(--white); text-decoration: none; font-weight: 600;
+}
+.back-top:hover { background: var(--track); }
+
+/* Un solo momento de movimiento: el hero aparece al cargar */
+@media (prefers-reduced-motion: no-preference) {
+    .hero-content { animation: entrada .7s ease-out both; }
+    @keyframes entrada { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }

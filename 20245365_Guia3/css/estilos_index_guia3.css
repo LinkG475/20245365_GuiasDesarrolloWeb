@@ -60,3 +60,56 @@ iframe {
     width: 600px; 
     height: 315px;
 }
+
+.prompt-documentation {
+    background-color: #121c26;
+    border-left: 4px solid #3d93d6;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.prompt-documentation dt {
+    font-weight: 700;
+    color: #8cc4f0; 
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.prompt-documentation dt:first-child {
+    margin-top: 0;
+}
+
+.prompt-documentation dd {
+    margin-left: 0;
+    color: #d3e3f2; 
+    line-height: 1.6;
+    font-size: 0.95rem;
+    white-space: pre-line;
+}
+
+.prompt-documentation ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    list-style-type: square;
+    color: #d3e3f2;
+}
+
+.prompt-documentation .nota {
+    margin-bottom: 0.6rem;
+    color: #a0b8cc; 
+}
+
+.prompt-documentation code {
+    background-color: #1e2d3d;
+    color: #66b3ff;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.9em;
+}
