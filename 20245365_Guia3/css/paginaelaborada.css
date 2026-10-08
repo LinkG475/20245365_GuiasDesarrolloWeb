@@ -51,7 +51,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--track); outline
 .kicker { font-weight: 600; color: var(--blue); margin: 0 0 .5rem; }
 
 /* ---------- Header (Grid) ---------- */
-.site-header {
+.site-header {  
     grid-column: 1 / -1;
     display: grid;
     grid-template-columns: subgrid;
