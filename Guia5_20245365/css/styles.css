@@ -1,0 +1,79 @@
+:root {
+    --coffee-primary: #5c3a21;
+    --coffee-dark: #3e2723;
+    --coffee-light: #f8f5f2;
+    --coffee-accent: #8d6e63;
+    --coffee-border: #e0d6ce;
+}
+
+body {
+    background-color: var(--coffee-light);
+    color: #2c221e;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Encabezado principal */
+.coffee-header {
+    background: linear-gradient(135deg, var(--coffee-dark), var(--coffee-primary));
+}
+
+/* Tarjetas personalizadas */
+.custom-card {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.custom-card-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--coffee-border);
+    color: var(--coffee-dark);
+}
+
+/* Botones personalizados */
+.btn-coffee {
+    background-color: var(--coffee-primary);
+    border-color: var(--coffee-primary);
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-coffee:hover, 
+.btn-coffee:focus {
+    background-color: var(--coffee-dark);
+    border-color: var(--coffee-dark);
+    color: #ffffff;
+}
+
+.btn-outline-coffee {
+    color: var(--coffee-primary);
+    border-color: var(--coffee-primary);
+    font-weight: 500;
+}
+
+.btn-outline-coffee:hover {
+    background-color: var(--coffee-primary);
+    color: #ffffff;
+}
+
+/* Estilos de la tabla */
+.table-coffee th {
+    background-color: #efeae4;
+    color: var(--coffee-dark);
+    font-weight: 600;
+    border-bottom: 2px solid var(--coffee-border);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* Textos destacados */
+.text-coffee {
+    color: var(--coffee-primary);
+}
+
+/* Foco en los inputs del formulario */
+.form-control:focus {
+    border-color: var(--coffee-accent);
+    box-shadow: 0 0 0 0.25rem rgba(92, 58, 33, 0.2);
+}
