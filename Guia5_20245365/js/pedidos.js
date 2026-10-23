@@ -84,7 +84,7 @@ function calcularTotales(listaPedidos){
 
 function vaciarPedidos() {
     pedidos.length = 0;
-};
+}
 
 function manejarAgregarPedido(event) {
     event.preventDefault();
@@ -100,11 +100,36 @@ function manejarAgregarPedido(event) {
         return;
     }
     alertaValidacion.classList.add("d-none");
-    registrarPedidoEnArreglo(producto, precio, cantidad);
-    
+    inputPrecioMax.value = "";
+    agregarPedido(producto, precio, cantidad);
     actualizarTabla(pedidos);
     actualizarIndicadores();
     formPedido.reset();
 }
 
-formPedido.addEventListener('submit', ManejarAgregarPedido());
+function manejarFiltrar() {
+    const textoPrecioMax = inputPrecioMax.value.trim();
+    const precioMax = Number(textoPrecioMax);
+    if (textoPrecioMax !== "" && !isNaN(precioMax) && precioMax >= 0) {
+        const filtrados = filtrarProductos(precioMax);
+        actualizarTabla(filtrados);
+    }
+}
+
+function manejarMostrarTodos() {
+    inputPrecioMax.value = ""; 
+    actualizarTabla(pedidos);
+}
+
+function manejarLimpiar() {
+    vaciarPedidos();
+    inputPrecioMax.value = "";
+    actualizarTabla(pedidos); 
+    actualizarIndicadores();
+    alertaValidacion.classList.add("d-none");
+}
+
+formPedido.addEventListener('submit', manejarAgregarPedido);
+btnFiltrar.addEventListener('click', manejarFiltrar);
+btnMostrarTodos.addEventListener('click', manejarMostrarTodos);
+btnLimpiar.addEventListener('click', manejarLimpiar);
