@@ -1,0 +1,390 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Modelo de caja universal */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. SELECTORES AVANZADOS & ENCABEZADO (FLEXBOX)
+   ========================================================================== */
+.encabezado-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3rem;
+  background-color: #1e293b;
+  border-bottom: 2px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo span {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #38bdf8;
+}
+
+/* Selector de hijo directo (>) */
+.navegacion > ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.enlace-nav {
+  text-decoration: none;
+  color: #94a3b8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Pseudo-clase :hover y selector de negación :not() */
+.enlace-nav:hover {
+  color: #38bdf8;
+}
+
+.enlace-nav.activo {
+  color: #ffffff;
+  border-bottom: 2px solid #38bdf8;
+  padding-bottom: 0.25rem;
+}
+
+/* ==========================================================================
+   3. SECCIÓN HERO (FLEXBOX + MODELO DE CAJA)
+   ========================================================================== */
+.seccion-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4.5rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.hero-texto {
+  flex: 1.2;
+}
+
+.subtitulo-hero {
+  display: inline-block;
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-texto h1 {
+  font-size: 2.75rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Selector de hermano adyacente (+): aplica solo al párrafo que sigue al h1 */
+.hero-texto h1 + p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-imagen {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-imagen img {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 3px solid #38bdf8;
+  padding: 6px;
+  background-color: #1e293b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Botones con modelo de caja y Flexbox */
+.hero-acciones {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.btn-primario {
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: 1px solid #38bdf8;
+}
+
+.btn-primario:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #475569;
+}
+
+.btn-secundario:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   4. SECCIONES Y SELECTORES ADICIONALES
+   ========================================================================== */
+.seccion-bloque {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background-color: #1e293b;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+
+.seccion-cabecera h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+/* Selector hermano general (~) */
+.seccion-cabecera h2 ~ p.bajada {
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Contenedor flexible de 2 columnas */
+.contenedor-columnas {
+  display: flex;
+  gap: 2rem;
+}
+
+.columna {
+  flex: 1;
+  background-color: #0f172a;
+  padding: 1.75rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.columna h3 {
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+/* Selector hermano adyacente entre párrafos */
+.columna p + p {
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   5. TARJETAS DE HABILIDADES (FLEXBOX + PSEUDO-CLASES ESTRUCTURALES)
+   ========================================================================== */
+.tarjetas-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  flex: 1 1 calc(33.333% - 1.5rem);
+  background-color: #0f172a;
+  padding: 1.75rem;
+  border-radius: 8px;
+  border-left: 4px solid #334155;
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  border-left-color: #38bdf8;
+}
+
+/* Pseudo-clases estructurales: :first-child y :nth-child */
+.tarjeta:first-child {
+  background-color: #162032;
+}
+
+.tarjeta:nth-child(2) h3 {
+  color: #60a5fa;
+}
+
+.tarjeta h3 {
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   6. ENLACES EXTERNOS (SELECTORES DE ATRIBUTO Y PSEUDO-ELEMENTOS)
+   ========================================================================== */
+.enlaces-externos {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.link-tarjeta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.link-tarjeta:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+/* Selector de atributo [target="_blank"] con pseudo-elemento ::after */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-left: 0.35rem;
+}
+
+/* Selector de atributo que empiece por mailto */
+a[href^="mailto"]::before {
+  content: "✉ ";
+  margin-right: 0.35rem;
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.pie-pagina {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid #334155;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.pie-pagina p + p {
+  margin-top: 0.35rem;
+}
+
+.seccion-hobbies {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.cabecera-seccion {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cabecera-seccion h2 {
+  font-size: 2.2rem;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+.cabecera-seccion p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* 
+  Implementación de CSS Grid básico: 
+  Crea exactamente 4 columnas del mismo tamaño (1 fracción cada una).
+  Al no aplicar diseño responsivo, se mantendrán fijas en una sola fila.
+*/
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* Tarjetas individuales usando el Modelo de Caja y Flexbox interior */
+.tarjeta-hobby {
+  background-color: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #334155;
+}
+
+/* Selectores avanzados: Efecto hover en la tarjeta */
+.tarjeta-hobby:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  border-color: #38bdf8;
+}
+
+/* Manejo de la figura y la imagen */
+.imagen-hobby {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.imagen-hobby img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Selectores avanzados: Al hacer hover en la tarjeta, la imagen crece suavemente */
+.tarjeta-hobby:hover .imagen-hobby img {
+  transform: scale(1.05);
+}
+
+.contenido-hobby {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.contenido-hobby h3 {
+  color: #f1f5f9;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.contenido-hobby p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

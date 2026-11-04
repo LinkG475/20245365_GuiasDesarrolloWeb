@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Biografía</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/estilos_biografia.css">
+</head>
+<body>
+    <header class="encabezado-principal">
+        <div class="logo">
+        <span>&lt;DevBio/&gt;</span>
+        </div>
+        <nav class="navegacion">
+        <ul class="menu">
+            <li><a href="#inicio" class="enlace-nav activo">Inicio</a></li>
+            <li><a href="#sobre-mi" class="enlace-nav">Sobre mí</a></li>
+            <li><a href="#habilidades" class="enlace-nav">Habilidades</a></li>
+            <li><a href="#pasatiempos" class="enlace-nav">Pasatiempos</a></li>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="seccion-hero">
+        <div class="hero-texto">
+            <span class="subtitulo-hero">Estudiante de Ingeniería & Desarrollador</span>
+            <h1>Hola, soy German Suazo</h1>
+            <p>Apasionado por la arquitectura de software, bases de datos y la creación de herramientas digitales eficientes y escalables.</p>
+            <div class="hero-acciones">
+            <a href="#sobre-mi" class="btn btn-primario">Conóceme más</a>
+            <a href="https://github.com/LinkG475" target="_blank" rel="noopener noreferrer" class="btn btn-secundario">GitHub</a>
+            </div>
+        </div>
+        <figure class="hero-imagen">
+            <img src="https://images.unsplash.com/photo-1534972195531-a756b1140f6c?auto=format&fit=crop&w=600&q=80" alt="Fotografía de perfil de German Suazo">
+        </figure>
+        </section>
+
+        <section id="sobre-mi" class="seccion-bloque">
+        <header class="seccion-cabecera">
+            <h2>Sobre mí</h2>
+            <p class="bajada">Un vistazo a mi trayectoria, formación y pasatiempos.</p>
+        </header>
+        
+        <div class="contenedor-columnas">
+            <article class="columna">
+            <h3>Trayectoria Académica</h3>
+            <p>Actualmente curso la carrera de Ingeniería en Desarrollo de Software y Negocios. Me enfoco en resolver problemas complejos mediante lógica algorítmica, optimización de consultas SQL y desarrollo estructurado.</p>
+            <p>Me interesa la intersección entre la tecnología y el impacto estratégico en los negocios, manteniendo siempre un estándar de código limpio y buenas prácticas de ingeniería.</p>
+            </article>
+
+            <article class="columna">
+            <h3>Intereses & Disciplina</h3>
+            <p>Además de la programación, mantengo una rutina activa de ciclismo de ruta y atletismo de fondo. El deporte me ha enseñado la perseverancia, la gestión de la energía y la disciplina necesarias para abordar proyectos de largo aliento.</p>
+            <p>También me apasiona explorar la lógica detrás del diseño de videojuegos y la automatización de flujos de trabajo.</p>
+            </article>
+        </div>
+        </section>
+
+        <section id="habilidades" class="seccion-bloque">
+        <header class="seccion-cabecera">
+            <h2>Áreas de Enfoque</h2>
+            <p class="bajada">Herramientas y tecnologías que empleo habitualmente.</p>
+        </header>
+
+        <div class="tarjetas-flex">
+            <article class="tarjeta">
+            <h3>Desarrollo Backend & DB</h3>
+            <p>Modelado relacional, optimización de consultas SQL y desarrollo de APIs robustas en Java, C# y Python.</p>
+            </article>
+
+            <article class="tarjeta">
+            <h3>Desarrollo Web Frontend</h3>
+            <p>Construcción de interfaces web semánticas, accesibles y responsivas utilizando HTML5, CSS moderno y JavaScript.</p>
+            </article>
+
+            <article class="tarjeta">
+            <h3>Automatización & Lógica</h3>
+            <p>Diseño de pipelines de datos, automatizaciones con n8n y desarrollo de mecánicas lógicas en motores interactivos.</p>
+            </article>
+        </div>
+        </section>
+
+        <section id="pasatiempos" class="seccion-hobbies">
+            <header class="cabecera-seccion">
+                <h2>Mis pasatiempos</h2>
+                <p>Cosas que me gustan y hago además del desarrollo de software.</p>
+            </header>
+
+            <div class="galeria-grid">
+                <article class="tarjeta-hobby">
+                <figure class="imagen-hobby">
+                    <img src="./img/ruta_montaña.jpeg" alt="Ciclismo de montaña">
+                </figure>
+                <div class="contenido-hobby">
+                    <h3>Ciclismo de Montaña</h3>
+                    <p>Practico ciclismo de montaña los fines de semana a través de recorridos de entre 12 km a 16 km en rutas con constantes cambios de elevación durante los fines de semana que estoy desocupado.</p>
+                </div>
+                </article>
+
+                <article class="tarjeta-hobby">
+                <figure class="imagen-hobby">
+                    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80" alt="Atletismo de fondo">
+                </figure>
+                <div class="contenido-hobby">
+                    <h3>Atletismo de Fondo</h3>
+                    <p>Preparación deportiva enfocada en la disciplina y la superación de marcas, entrenando para eventos de media distancia como carreras de 12 kilómetros.</p>
+                </div>
+                </article>
+
+                <article class="tarjeta-hobby">
+                <figure class="imagen-hobby">
+                    <img src="./img/minecraft.jpg" alt="Lógica y automatización">
+                </figure>
+                <div class="contenido-hobby">
+                    <h3>Automatización & Redstone</h3>
+                    <p>Análisis de mecánicas de juego en Minecraft. Diseño de granjas automatizadas, circuitos lógicos y optimización de recursos, como los intercambios comerciales usando bloques compactos de sandía.</p>
+                </div>
+                </article>
+
+                <!-- Tarjeta 4: Estrategia Competitiva -->
+                <article class="tarjeta-hobby">
+                <figure class="imagen-hobby">
+                    <img src="./img/Pokemon-Champions.png" alt="Estrategia competitiva">
+                </figure>
+                <div class="contenido-hobby">
+                    <h3>Estrategia en Pokémon Champions</h3>
+                    <p>Análisis de metajuego bajo reglas VGC. Cálculo milimétrico de estadísticas (con topes de 32 EVs por stat y 66 en total) y evaluación de sinergias tácticas mediante el uso de Mega Evoluciones.</p>
+                </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 German Suazo.</p>
+    </footer>
+</body>
+</html>
