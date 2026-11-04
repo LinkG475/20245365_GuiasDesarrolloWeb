@@ -2,7 +2,7 @@
 const containerEstudiantes = document.querySelector("#idContainerEstudiantes");
 
 //Accedemos a cada boton por medio de la API DOM
-const btnPromedio = document.querySelector("idBtnPromedio");
+const btnPromedio = document.querySelector("#idBtnPromedio");
 
 //Agregamos el evento click a los botones, adicionalmente
 //se le asigna la funcion que realizará la operación
@@ -53,13 +53,14 @@ function generarEstudiantes() {
     listado += "<ol'>";
     for (let indice of arrayEstudiantes) {
         let nombre = indice[0];
-        let nota = indice[1];
+        let nota = parseFloat(indice[1]);
         //imprimiendo lista de estudiantes
         listado += `<li><b>Nombre:</b> ${nombre} - <b>Calificación:</b> ${nota}</li>`;
 
         //verificacion de calificación más alta
         if (nota > calificacionAlta) {
             posicion = indice;
+            calificacionAlta = nota;
         }
 
         //calculando el promedio

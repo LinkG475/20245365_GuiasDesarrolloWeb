@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Ficha de Estudiante</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/js.png" sizes="32x32" type="image/png">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="./index6.html">
+                <img src="./img/js.png" 
+                     alt="Logo JavaScript" 
+                     width="30" 
+                     height="30" 
+                     class="d-inline-block align-text-top me-2 rounded">
+            </a>
+        </div>
+    </nav>
+
+    <div class="container py-3">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4">
+                        <h2 class="h4 text-primary border-bottom pb-2 mb-3">Ficha de Estudiante</h2>
+                        
+                        <form id="idFormEstudiante" novalidate>
+                            <div class="mb-3">
+                                <label for="idTxtCarnet" class="form-label fw-semibold">Carnet</label>
+                                <input type="text" class="form-control" id="idTxtCarnet" placeholder="Ej. AB001" maxlength="5">
+                                <div class="invalid-feedback">Formato inválido. Use dos letras y tres números (Ej: AB001).</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idTxtNombre" class="form-label fw-semibold">Nombre completo</label>
+                                <input type="text" class="form-control" id="idTxtNombre" placeholder="Ej. Juan Pérez">
+                                <div class="invalid-feedback">Ingrese solo letras y espacios, sin números ni símbolos.</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="idTxtDui" class="form-label fw-semibold">Número de DUI</label>
+                                    <input type="text" class="form-control" id="idTxtDui" placeholder="00000000-0" maxlength="10">
+                                    <div class="invalid-feedback">Formato requerido: ########-#</div>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="idTxtEdad" class="form-label fw-semibold">Edad</label>
+                                    <input type="text" class="form-control" id="idTxtEdad" placeholder="Ej. 20" maxlength="3">
+                                    <div class="invalid-feedback">Ingrese únicamente números.</div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idTxtNit" class="form-label fw-semibold">Número de NIT</label>
+                                <input type="text" class="form-control" id="idTxtNit" placeholder="0000-000000-000-0" maxlength="17">
+                                <div class="invalid-feedback">Formato requerido: ####-######-###-#</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idTxtFecha" class="form-label fw-semibold">Fecha de nacimiento</label>
+                                <input type="text" class="form-control" id="idTxtFecha" placeholder="DD/MM/AAAA" maxlength="10">
+                                <div class="invalid-feedback">Ingrese una fecha válida en formato DD/MM/AAAA.</div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="idTxtCorreo" class="form-label fw-semibold">Correo electrónico</label>
+                                <input type="email" class="form-control" id="idTxtCorreo" placeholder="estudiante@dominio.com">
+                                <div class="invalid-feedback">Ingrese una dirección de correo electrónico válida.</div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button type="button" id="idBtnValidar" class="btn btn-primary w-100">Registrar Estudiante</button>
+                                <button type="button" id="idBtnLimpiar" class="btn btn-secondary">Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                            <h2 class="h4 text-success mb-0">Estudiantes Registrados</h2>
+                            <button type="button" id="idBtnBorrarStorage" class="btn btn-outline-danger btn-sm">Vaciar registros</button>
+                        </div>
+                        <div id="idTablaEstudiantes"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/formValidaciones.js"></script>
+</body>
+</html>
