@@ -22,7 +22,7 @@ const mensaje = document.getElementById("idMensaje");
 const idModal = document.getElementById("idModal");
 
 //Arreglo global de pacientes
-let arrayPaciente = [];
+let arrayPaciente = JSON.parse(localStorage.getItem("pacientes")) || [];
 
 /*
 Creando una funcion para que limpie el formulario
@@ -69,10 +69,11 @@ const addPaciente = function () {
     pais != 0 &&
     direccion != ""
   ) {
-    //Agregando informacion al arreglo paciente
+    //Agregando informacion al arreglo paciente con persistencia en localStorage
     arrayPaciente.push(
-      new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion)
+        new Array(nombre, apellido, fechaNacimiento, sexo, labelPais, direccion)
     );
+    localStorage.setItem("pacientes", JSON.stringify(arrayPaciente));
 
     //Asignando un mensaje a nuestra notificacion
     mensaje.innerHTML = "Se ha registrado un nuevo paciente";
@@ -104,10 +105,10 @@ function imprimirFilas() {
                 <td>${element[4]}</td>
                 <td>${element[5]}</td>
                 <td>
-                    <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" alt="Eliminar">
+                    <button id="idBtnEditar${contador}" type="button" class="btn btn-primary" onclick="editarPaciente(${contador - 1})"alt="Editar">
                         <i class="bi bi-pencil-square"></i>
                     </button>
-                    <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" alt="Editar">
+                    <button id="idBtnEliminar${contador}" type="button" class="btn btn-danger" onclick="eliminarPaciente(${contador - 1})" alt="Eliminar">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </td>
@@ -136,6 +137,33 @@ const imprimirPacientes = () => {
         `;
   document.getElementById("idTablaPacientes").innerHTML = $table;
 };
+
+const eliminarPaciente = (index) => {
+  arrayPaciente.splice(index, 1);
+  localStorage.setItem("pacientes", JSON.stringify(arrayPaciente));
+  imprimirPacientes();
+};
+
+const editarPaciente = (index) => {
+    const paciente = arrayPaciente[index];
+    inputNombre.value = paciente[0]; 
+    inputApellido.value = paciente[1];
+    inputFechaNacimiento.value = paciente[2];
+    if (paciente[3] === "Hombre") {
+        inputRdMasculino.checked = true;
+    } else if (paciente[3] === "Mujer") {
+        inputRdFemenino.checked = true;
+    }
+    inputDireccion.value = paciente[5];
+    Array.from(cmbPais.options).forEach((option, i) => {
+        if (option.text === paciente[4]) {
+            cmbPais.selectedIndex = i;
+        }
+    });
+    eliminarPaciente(index);
+    mensaje.innerHTML = "Editando paciente. Realice los cambios y presione 'Agregar Paciente'";
+    toast.show();
+}
 
 // Contador global de los option correspondiente
 // al select (cmb) pais
@@ -189,3 +217,4 @@ idModal.addEventListener("shown.bs.modal", () => {
 
 //Ejecutar funcion al momento de cargar la pagina HTML
 limpiarForm();
+imprimirPacientes();
