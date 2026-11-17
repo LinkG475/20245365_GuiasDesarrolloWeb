@@ -10,7 +10,7 @@ const cambiarColorFondo = function (color) {
 // Funciones para modificar el color de los titulos
 const primerColorTitulos = function (event) {
     let colorSeleccionado = event.target.value;
-    const titulos = document.querySelector("h1");
+    const titulos = document.querySelectorAll("h1");
     for (let index = 0; index < titulos.length; index++) {
         titulos[index].style.color = colorSeleccionado;
     }
