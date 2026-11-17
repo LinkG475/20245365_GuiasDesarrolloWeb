@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameVault | Explorador RapidAPI</title>
+  <link rel="stylesheet" href="css/appstyles.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <span class="brand-badge">API</span>
+        <h1>GameVault Explorer</h1>
+      </div>
+      <div class="controls">
+        <input type="search" id="searchInput" placeholder="Buscar en resultados cargados..." autocomplete="off">
+        <select id="categorySelect">
+          <option value="">Todas las categorías</option>
+          <option value="shooter">Shooter</option>
+          <option value="mmorpg">MMORPG</option>
+          <option value="strategy">Estrategia</option>
+          <option value="moba">MOBA</option>
+          <option value="fighting">Peleas</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Barra de estado y contadores -->
+    <div class="status-bar">
+      <p id="resultsCount">Cargando catálogo...</p>
+      <button id="retryBtn" class="btn-secondary hidden">Reintentar conexión</button>
+    </div>
+
+    <!-- Contenedor de mensajes de error o carga -->
+    <div id="feedbackContainer" class="feedback-box hidden"></div>
+
+    <!-- Endpoint 1: Listado de recursos -->
+    <section id="gamesGrid" class="games-grid" aria-live="polite"></section>
+  </main>
+
+  <!-- Endpoint 2: Detalle de un recurso (Sin recargar la página) -->
+  <dialog id="detailModal" class="modal">
+    <div class="modal-wrapper">
+      <button id="closeModalBtn" class="modal-close" aria-label="Cerrar detalle">&times;</button>
+      <div id="modalContent" class="modal-body">
+        <!-- Se inyecta dinámicamente con JS -->
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
